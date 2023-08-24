@@ -1,0 +1,55 @@
+<fieldset class="group">
+  <legend>Printer</legend>
+  <mat-form-field appearance="fill">
+      <mat-label>Status Koneksi Printer</mat-label>
+      <input matInput placeholder="Status Koneksi Printer" readonly [value]="connectionStatus ?'Tersambung':'Tidak tersambung'">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+      <mat-label>Koneksi Printer</mat-label>
+      <mat-select required #printerConSelected [disabled]="connectionStatus">
+        <mat-option [value]="printerConnection.Bluetooth" [disabled]="!isBluetoothAvailable && !isSerialAvailable">Bluetooth</mat-option>
+        <mat-option [value]="printerConnection.USB" [disabled]="!isUSBAvailable">USB</mat-option>
+        <mat-option [value]="printerConnection.Network" >Network</mat-option>
+      </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngIf="printerConSelected.value === printerConnection.Network">
+      <mat-label>IP Printer</mat-label>
+      <input matInput placeholder="IP Printer" required [disabled]="connectionStatus">
+  </mat-form-field>
+  
+  <div *ngIf="printerConSelected.value === printerConnection.Bluetooth">
+      <mat-label>Jenis Bluetooth</mat-label>
+      <mat-radio-group [(ngModel)]="bluetoothTypeSelected" aria-label="Opsi sambungan bluetooth" style="display: flex;flex-direction: column;">
+          <mat-radio-button [value]="bluetoothConnection.BLE" [disabled]="!isBluetoothAvailable">{{bluetoothConnection.BLE}}</mat-radio-button>
+          <mat-radio-button [value]="bluetoothConnection.Serial" [disabled]="!isSerialAvailable">{{bluetoothConnection.Serial}}</mat-radio-button>
+      </mat-radio-group>
+      <div *ngIf="bluetoothTypeSelected === bluetoothConnection.BLE" [formGroup]="bleDescription">
+          <mat-form-field appearance="fill">
+              <mat-label>Service UUID</mat-label>
+              <input matInput placeholder="Service UUID" required formControlName="service">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+              <mat-label>Characteristic UUID</mat-label>
+              <input matInput placeholder="Characteristic UUID" required formControlName="characteristic">
+          </mat-form-field>
+      </div>
+  </div>
+
+  <div class="action-container" *ngIf="!connectionStatus">
+      <button mat-raised-button color="primary" type="button" (click)="connect()">Sambungkan</button>
+  </div>
+  <ng-container *ngIf="connectionStatus">
+      <mat-form-field appearance="fill">
+          <mat-label>Nama Printer</mat-label>
+          <input matInput placeholder="Nama Printer Printer" readonly [value]="printerName">
+      </mat-form-field>
+     
+      <div class="action-container">
+          <button mat-raised-button color="warn" type="button" (click)="disconnect()">Putuskan</button>
+          <button mat-raised-button color="accent" type="button" (click)="testPrinter()">Test Printer</button>
+
+      </div>
+  </ng-container>
+</fieldset>
+
+<img src="assets/logo.svg"/>

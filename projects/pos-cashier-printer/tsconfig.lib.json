@@ -1,0 +1,18 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/lib",
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    "types":  ["w3c-web-usb", "w3c-web-serial", "web-bluetooth"],
+    "allowJs": true,
+  },
+  "exclude": [
+    "**/*.spec.ts",
+  ],
+  "include": [
+    "**/*",
+  ]
+}
