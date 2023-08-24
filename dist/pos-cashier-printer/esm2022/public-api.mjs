@@ -1,0 +1,8 @@
+/*
+ * Public API Surface of pos-cashier-printer
+ */
+export * from './lib/pos-cashier-printer.service';
+export * from './lib/pos-cashier-printer.component';
+export * from './lib/pos-cashier-printer.module';
+export * from './lib/drivers/index';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3Byb2plY3RzL3Bvcy1jYXNoaWVyLXByaW50ZXIvc3JjL3B1YmxpYy1hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0dBRUc7QUFFSCxjQUFjLG1DQUFtQyxDQUFDO0FBQ2xELGNBQWMscUNBQXFDLENBQUM7QUFDcEQsY0FBYyxrQ0FBa0MsQ0FBQztBQUNqRCxjQUFjLHFCQUFxQixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqIFB1YmxpYyBBUEkgU3VyZmFjZSBvZiBwb3MtY2FzaGllci1wcmludGVyXG4gKi9cblxuZXhwb3J0ICogZnJvbSAnLi9saWIvcG9zLWNhc2hpZXItcHJpbnRlci5zZXJ2aWNlJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL3Bvcy1jYXNoaWVyLXByaW50ZXIuY29tcG9uZW50JztcbmV4cG9ydCAqIGZyb20gJy4vbGliL3Bvcy1jYXNoaWVyLXByaW50ZXIubW9kdWxlJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL2RyaXZlcnMvaW5kZXgnOyJdfQ==
